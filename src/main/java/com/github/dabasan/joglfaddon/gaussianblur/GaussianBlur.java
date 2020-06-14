@@ -19,11 +19,11 @@ import com.github.dabasan.joglf.gl.util.screen.ScreenBase;
  *
  */
 public class GaussianBlur {
-	private ShaderProgram program;
-	private FullscreenQuadTransferrerWithUV transferrer;
-	private Screen screen_intermediate;
+	private final ShaderProgram program;
+	private final FullscreenQuadTransferrerWithUV transferrer;
+	private final Screen screen_intermediate;
 
-	private float[] weights;
+	private final float[] weights;
 
 	/**
 	 * 
@@ -50,10 +50,10 @@ public class GaussianBlur {
 	 *            Standard deviation
 	 */
 	public void GenerateWeights(float c) {
-		float c2 = c * c;
+		final float c2 = c * c;
 		float sum = 0.0f;
 		for (int i = 0; i < weights.length; i++) {
-			float x2 = (float) (i * i);
+			final float x2 = (float) (i * i);
 			float w = (float) Math.exp(-0.5f * x2 / c2);
 			weights[i] = w;
 			if (i > 0) {
@@ -68,7 +68,7 @@ public class GaussianBlur {
 
 		program.Enable();
 		for (int i = 0; i < weights.length; i++) {
-			String uname = "weights" + "[" + i + "]";
+			final String uname = "weights" + "[" + i + "]";
 			program.SetUniform(uname, weights[i]);
 		}
 		program.Disable();

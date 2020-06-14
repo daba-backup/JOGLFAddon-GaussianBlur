@@ -5,7 +5,7 @@ public class TestMain {
 		new TestMain();
 	}
 	public TestMain() {
-		var window = new TestWindow();
+		final var window = new TestWindow();
 		window.SetExitProcessWhenDestroyed();
 	}
 }
