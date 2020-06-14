@@ -74,6 +74,14 @@ public class GaussianBlur {
 		program.Disable();
 	}
 
+	/**
+	 * Applies blur to a screen.
+	 * 
+	 * @param src
+	 *            Source screen
+	 * @param dst
+	 *            Destination screen
+	 */
 	public void ApplyBlur(ScreenBase src, ScreenBase dst) {
 		program.Enable();
 		// Horizontal blur
